@@ -165,13 +165,16 @@ int main()
     printNumbers(numbers_copy, n, 4, 2);
 
     double time_taken_bubbleSort = ((double)(end_bubbleSort - start_bubbleSort)) / CLOCKS_PER_SEC;
-    printf("Bubble Sort took %f seconds to execute \n", time_taken_bubbleSort);
-
     double time_taken_selectionSort = ((double)(end_selectionSort - start_selectionSort)) / CLOCKS_PER_SEC;
-    printf("Selection Sort took %f seconds to execute \n", time_taken_selectionSort);
-
     double time_taken_insertionSort = ((double)(end_insertionSort - start_insertionSort)) / CLOCKS_PER_SEC;
-    printf("Insertion Sort took %f seconds to execute \n", time_taken_insertionSort);
+    printf("+-----------------------+---------------------------+----------------------+\n");
+    printf("| Algoritma Pengurutan  | Jumlah Bilangan (n)       | Waktu Eksekusi(detik)|\n");
+    printf("+-----------------------+---------------------------+----------------------+\n");
+    printf("| Bubble Sort           | %-25d | %-20.6f |\n", n, time_taken_bubbleSort);
+    printf("| Selection Sort        | %-25d | %-20.6f |\n", n, time_taken_selectionSort);
+    printf("| Insertion Sort        | %-25d | %-20.6f |\n", n, time_taken_insertionSort);
+    printf("+-----------------------+---------------------------+----------------------+\n");
+
 
     free(numbers);
     free(numbers_copy);
