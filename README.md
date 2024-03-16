@@ -26,9 +26,9 @@ Setiap algoritma diimplementasikan dalam fungsi terpisah dan kemudian dijalankan
 
 ## Fungsi yang Digunakan
 
-1. void quickShuffle(int *array, int n): Fungsi untuk mengacak urutan array menggunakan metode pertukaran acak.
-2. void bubbleSort(int arr[], int n): Fungsi untuk mengurutkan array menggunakan algoritma Bubble Sort.
-3. void selectionSort(int arr[], int n): Fungsi untuk mengurutkan array menggunakan algoritma Selection Sort.
-4. void insertionSort(int arr[], int n): Fungsi untuk mengurutkan array menggunakan algoritma Insertion Sort.
-5. void printNumbers(int numbers[], int n, int pilih, int mode): Fungsi untuk mencetak angka-angka ke dalam file "numbers.txt" sebelum atau setelah pengurutan dilakukan, beserta metode pengurutan yang digunakan.
+1. `void quickShuffle(int *array, int n)`: Fungsi untuk mengacak urutan array menggunakan metode pertukaran acak.
+2. `void bubbleSort(int arr[], int n)`: Fungsi untuk mengurutkan array menggunakan algoritma Bubble Sort.
+3. `void selectionSort(int arr[], int n)`: Fungsi untuk mengurutkan array menggunakan algoritma Selection Sort.
+4. `void insertionSort(int arr[], int n)`: Fungsi untuk mengurutkan array menggunakan algoritma Insertion Sort.
+5. `void printNumbers(int numbers[], int n, int pilih, int mode)`: Fungsi untuk mencetak angka-angka ke dalam file "numbers.txt" sebelum atau setelah pengurutan dilakukan, beserta metode pengurutan yang digunakan.
 
