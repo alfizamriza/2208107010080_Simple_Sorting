@@ -3,6 +3,7 @@
 #include <time.h>
 #include <string.h>
 
+// Fungsi untuk melakukan pengocokan cepat (quick shuffle) array
 void quickShuffle(int *array, int n)
 {
     for (int i = 0; i < n; i++)
@@ -14,17 +15,7 @@ void quickShuffle(int *array, int n)
     }
 }
 
-// void fisherYatesShuffle(int *array, int n)
-// {
-//     for (int i = n - 1; i > 0; i--)
-//     {
-//         int j = rand() % (i + 1);
-//         int temp = array[i];
-//         array[i] = array[j];
-//         array[j] = temp;
-//     }
-// }
-
+// Fungsi untuk mengurutkan array menggunakan algoritma Bubble Sort
 void bubbleSort(int arr[], int n)
 {
     int temp;
@@ -42,6 +33,7 @@ void bubbleSort(int arr[], int n)
     }
 }
 
+// Fungsi untuk mengurutkan array menggunakan algoritma Selection Sort
 void selectionSort(int arr[], int n)
 {
     int min_idx, temp;
@@ -57,6 +49,7 @@ void selectionSort(int arr[], int n)
     }
 }
 
+// Fungsi untuk mengurutkan array menggunakan algoritma Insertion Sort
 void insertionSort(int arr[], int n)
 {
     int key, j;
@@ -73,22 +66,23 @@ void insertionSort(int arr[], int n)
     }
 }
 
+// Fungsi untuk mencetak angka-angka dalam array ke dalam file
 void printNumbers(int numbers[], int n, int pilih, int mode)
 {
     FILE *fptr;
     if (mode == 1)
     {
-        fptr = fopen("numbers.txt", "w");
+        fptr = fopen("numbers.txt", "w"); // Mode penulisan file baru
     }
     else
     {
-        fptr = fopen("numbers.txt", "a");
+        fptr = fopen("numbers.txt", "a"); // Mode penulisan tambahan pada file yang sudah ada
     }
 
     if (fptr == NULL)
     {
         printf("Error opening file.\n");
-        free(numbers);
+        free(numbers); // Membebaskan memori yang dialokasikan untuk array
         exit(1);
     }
 
@@ -133,40 +127,47 @@ int main()
     int n;
     printf("Isi jumlah angka yang kamu mau \n--->\t");
     scanf("%d", &n);
-    int *numbers = malloc(n * sizeof(int));
-    int *numbers_copy = malloc(n * sizeof(int));
+    int *numbers = malloc(n * sizeof(int)); // Alokasi memori untuk array angka
+    int *numbers_copy = malloc(n * sizeof(int)); // Alokasi memori untuk array angka salinan
 
+    // Mengisi array dengan angka dari 1 hingga n
     for (int i = 0; i < n; i++)
     {
         numbers[i] = i + 1;
     }
 
-    srand(time(NULL));
+    srand(time(NULL)); // Inisialisasi seed untuk fungsi rand()
 
-    quickShuffle(numbers, n);
-    printNumbers(numbers, n, 1, 1);
+    quickShuffle(numbers, n); // Mengocok array secara cepat
+    printNumbers(numbers, n, 1, 1); // Mencetak array sebelum diurutkan ke dalam file
 
-    memcpy(numbers_copy, numbers, n * sizeof(int));
-    clock_t start_bubbleSort = clock();
-    bubbleSort(numbers_copy, n);
-    clock_t end_bubbleSort = clock();
-    printNumbers(numbers_copy, n, 2, 2);
+    // Melakukan pengurutan menggunakan Bubble Sort
+    memcpy(numbers_copy, numbers, n * sizeof(int)); // Meng-copy isi array ke array salinan
+    clock_t start_bubbleSort = clock(); // Memulai pencatatan waktu
+    bubbleSort(numbers_copy, n); // Melakukan pengurutan
+    clock_t end_bubbleSort = clock(); // Menghentikan pencatatan waktu
+    printNumbers(numbers_copy, n, 2, 2); // Mencetak array setelah diurutkan menggunakan Bubble Sort ke dalam file
 
-    memcpy(numbers_copy, numbers, n * sizeof(int));
-    clock_t start_selectionSort = clock();
-    selectionSort(numbers_copy, n);
-    clock_t end_selectionSort = clock();
-    printNumbers(numbers_copy, n, 3, 2);
+    // Melakukan pengurutan menggunakan Selection Sort
+    memcpy(numbers_copy, numbers, n * sizeof(int)); // Meng-copy isi array ke array salinan
+    clock_t start_selectionSort = clock(); // Memulai pencatatan waktu
+    selectionSort(numbers_copy, n); // Melakukan pengurutan
+    clock_t end_selectionSort = clock(); // Menghentikan pencatatan waktu
+    printNumbers(numbers_copy, n, 3, 2); // Mencetak array setelah diurutkan menggunakan Selection Sort ke dalam file
 
-    memcpy(numbers_copy, numbers, n * sizeof(int));
-    clock_t start_insertionSort = clock();
-    insertionSort(numbers_copy, n);
-    clock_t end_insertionSort = clock();
-    printNumbers(numbers_copy, n, 4, 2);
+    // Melakukan pengurutan menggunakan Insertion Sort
+    memcpy(numbers_copy, numbers, n * sizeof(int)); // Meng-copy isi array ke array salinan
+    clock_t start_insertionSort = clock(); // Memulai pencatatan waktu
+    insertionSort(numbers_copy, n); // Melakukan pengurutan
+    clock_t end_insertionSort = clock(); // Menghentikan pencatatan waktu
+    printNumbers(numbers_copy, n, 4, 2); // Mencetak array setelah diurutkan menggunakan Insertion Sort ke dalam file
 
+    // Menghitung waktu yang diperlukan untuk setiap algoritma pengurutan
     double time_taken_bubbleSort = ((double)(end_bubbleSort - start_bubbleSort)) / CLOCKS_PER_SEC;
     double time_taken_selectionSort = ((double)(end_selectionSort - start_selectionSort)) / CLOCKS_PER_SEC;
     double time_taken_insertionSort = ((double)(end_insertionSort - start_insertionSort)) / CLOCKS_PER_SEC;
+    
+    // Mencetak hasil pengurutan dan waktu eksekusi ke dalam konsol
     printf("+-----------------------+---------------------------+----------------------+\n");
     printf("| Algoritma Pengurutan  | Jumlah Bilangan (n)       | Waktu Eksekusi(detik)|\n");
     printf("+-----------------------+---------------------------+----------------------+\n");
@@ -175,7 +176,7 @@ int main()
     printf("| Insertion Sort        | %-25d | %-20.6f |\n", n, time_taken_insertionSort);
     printf("+-----------------------+---------------------------+----------------------+\n");
 
-
+    // Membebaskan memori yang dialokasikan untuk array
     free(numbers);
     free(numbers_copy);
 
