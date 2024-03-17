@@ -32,3 +32,5 @@ Setiap algoritma diimplementasikan dalam fungsi terpisah dan kemudian dijalankan
 4. `void insertionSort(int arr[], int n)`: Fungsi untuk mengurutkan array menggunakan algoritma Insertion Sort.
 5. `void printNumbers(int numbers[], int n, int pilih, int mode)`: Fungsi untuk mencetak angka-angka ke dalam file "numbers.txt" sebelum atau setelah pengurutan dilakukan, beserta metode pengurutan yang digunakan.
 
+## Video Cara Menjalankan Kode Program
+[![Tonton Video](https://img.youtube.com/vi/OvmoYfjn4YY/maxresdefault.jpg)](https://www.youtube.com/watch?v=OvmoYfjn4YY)
